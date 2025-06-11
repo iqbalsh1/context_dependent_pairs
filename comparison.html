@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Switching PointS Analysis</title>
+ <style>
+   body {
+      font-family: sans-serif;
+      padding: 20px;
+      font-size: 16px;
+      margin-left: auto;
+      margin-right: auto; 
+
+    }
+    h1 {
+      text-align: center;
+    }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px; 
+
+  }
+
+  th, td {
+    padding: 10px 14px; 
+    text-align: left;
+    word-wrap: break-word;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9; 
+    border-bottom: 1px solid #ccc;
+  }
+
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  .wide-col {
+  width: 90px;
+    }
+
+</style>
+
+</head>
+<body>
+
+  <h1>Table for Switching Point Analysis</h1>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th class="wide-col">Pair No.</th>
+          <th>Variable Pair</th>
+          <th>Ground Truth</th>
+          <th>Plausible Direction</th>
+          <th>Trend Shape</th>
+          <th>Switch Point 1</th>
+          <th>Switch Point 2</th>
+          <th>Switch Point 3</th>
+          <th>Strongest Region</th>
+          <th>LOWESS (it=10) & Binning Stability</th>
+          <th>Notes/Interpretation</th>
+          <th>Structure</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pair49</td>
+          <td>Ozone, Temperature</td>
+          <td>Temp → Ozone</td>
+          <td>Ozone → Temp</td>
+          <td>Nonlinear (S-shaped)</td>
+          <td>55–60</td>
+          <td>85–90</td>
+          <td>—</td>
+          <td>60–85</td>
+          <td>Stable at frac=0.3 and bin_size=12</td>
+          <td>In mid-range of ozone shows strong rise in temperature</td>
+          <td>Possible bidirectional/Threshold-based</td>
+        </tr>
+        <tr>
+          <td>Pair50</td>
+          <td>Ozone, Temperature</td>
+          <td>Temp → Ozone</td>
+          <td>Ozone → Temp</td>
+          <td>Nonlinear (S-shaped)</td>
+          <td>71–75</td>
+          <td>85–90</td>
+          <td>118–121</td>
+          <td>90–118  </td>
+          <td>Stable at frac=0.3 and bin_size=14</td>
+          <td>Trend deepens at second switch; saturation possibly begins from third switch</td>
+          <td>Possible bidirectional, Threshold-based causality (zone-specific behavior)</td>
+        </tr>
+
+        <tr>
+            <td>Pair51</td>
+            <td>Ozone, Temperature</td>
+            <td>Temp → Ozone</td>
+            <td>Ozone → Temp</td>
+            <td>Mixed slope, minor plateau</td>
+            <td>61–64</td>
+            <td>80–83</td>
+            <td>99–102</td>
+            <td>83–102</td>
+            <td>Stable at frac=0.4 and bin_size=7</td>
+            <td>Initially flat, slope sharpens post-80 µg/m³ then flattens again, possibly saturation zone</td>
+            <td>Possible bidirectional, Threshold-based causality (zone-specific behavior)</td>
+        </tr>
+
+        <tr>
+            <td>Pair53-a</td>
+            <td>Ozone, Wind Speed</td>
+            <td>Wind → Ozone</td>
+            <td>Ozone → Wind</td>
+            <td>Nonlinear (rising)</td>
+            <td>130–155</td>
+            <td>330–360</td>
+            <td>—</td>
+            <td>155–330</td>
+            <td>Stable at frac=0.1, bin_size=5</td>
+            <td>Wind increases rapidly up to ~330, then slightly flattens</td>
+            <td>Possible indirect or feedback influence of ozone</td>
+        </tr>
+
+        <tr>
+            <td>Pair53-b</td>
+            <td>Ozone, Global Radiation</td>
+            <td>Radiation → Ozone</td>
+            <td>Ozone → Radiation</td>
+            <td>Nonlinear (saturation)</td>
+            <td>130–150</td>
+            <td>330–350  </td>
+            <td>420–440  </td>
+            <td>150–330  </td>
+            <td>Stable at frac=0.1, bin_size=6</td>
+            <td>Radiation increases fast at low ozone but flattens later, suggests saturation</td>
+            <td>Bidirectional / Mutual influence</td>
+        </tr>
+
+    <tr>
+        <td>Pair53-c</td>
+        <td>Ozone, Temperature</td>
+        <td>Temp → Ozone</td>
+        <td>Ozone → Temperature</td>
+        <td>Nonlinear (saturation)</td>
+        <td>160–180 </td>
+        <td>320–340 </td>
+        <td>420–440 </td>
+        <td>180–320 </td>
+        <td>Stable trend at frac=0.1, bin_size=7</td>
+        <td>Initial rise in temperature slows after 340; second switch shows possible saturation</td>
+        <td>Threshold-based / Possible bidirectional</td>
+    </tr>
+
+    <tr>
+        <td>Pair65</td>
+        <td>Stock return of a parent company, Stock return of its subsidiary</td>
+        <td>Subsidairy → Parent</td>
+        <td>Parent → Subsidairy</td>
+        <td>Partially Linear</td>
+        <td>−0.03 to −0.02</td>
+        <td>—</td>
+        <td>—</td>
+        <td>&gt; −0.02</td>
+        <td>Stable at frac=0.4 and bin_size=9</td>
+        <td>Mid-to-high HSBC returns show the strongest positive association with subsidiaries returns.</td>
+        <td>Context Dependent (ownership structure, Market perception)</td>
+    </tr>
+
+    <tr>
+        <td>Pair66</td>
+        <td>Stock return of a parent company, Stock return of its subsidiary</td>
+        <td>Subsidairy → Parent</td>
+        <td>Parent → Subsidairy</td>
+        <td>Partially Linear</td>
+        <td>−0.048 to −0.06</td>
+        <td>—</td>
+        <td>—</td>
+        <td>&gt; −0.05</td>
+        <td>Stable at frac=0.2 and bin_size=9</td>
+        <td>Suggests steady positive co-movement with minimal nonlinear trend</td>
+        <td>Context Dependent, ownership structure, Market perception</td>
+    </tr>
+
+    <tr>
+        <td>Pair67</td>
+        <td>Stock return of a parent company, Stock return of its subsidiary</td>
+        <td>Subsidairy → Parent</td>
+        <td>Parent → Subsidairy</td>
+        <td>Partially Linear</td>
+        <td>−0.03 to −0.04</td>
+        <td>—</td>
+        <td>—</td>
+        <td>&gt; −0.03</td>
+        <td>Stable trend at frac=0.3 and bin_size=11</td>
+        <td>Returns flatten before −0.03, then show a clear linear rise.</td>
+        <td>Context Dependent, ownership structure, Market perception</td>
+    </tr>
+
+    <tr>
+        <td>Pair73</td>
+        <td>Carbon dioxide, energy use</td>
+        <td>Energy Use → Carbon dioxide emission</td>
+        <td>Carbon dioxide emission → Energy Use</td>
+        <td>Nonlinear</td>
+        <td>15 to 17</td>
+        <td>29 to 31</td>
+        <td>—</td>
+        <td>10 to 29</td>
+        <td>Stable at frac=0.1 and bin_size=7</td>
+        <td>Energy use increases steeply with emissions until ~30 units, then flattens. Indicates saturation, likely tied to infrastructure or efficiency ceilings.</td>
+        <td>Indirect causality: CO₂ emissions → policy → energy use</td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
