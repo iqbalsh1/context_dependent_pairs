@@ -40,7 +40,7 @@
     font-weight: bold;
   }
   .wide-col {
-  width: 90px;
+  width: 100px;
     }
 
 </style>
@@ -49,6 +49,22 @@
 <body>
 
   <h1>Table for Switching Point Analysis</h1>
+<p style="text-align: justify;">
+We examined scatterplots of variable pairs with <strong>multimodal structures</strong>, aiming to detect <strong>switching points</strong>local reversals or shifts in causal direction. For simplicity, the <strong>hypothesized cause</strong> was placed on the X-axis and the <strong>effect</strong> on the Y-axis.
+</p>
+
+<p style="text-align: justify;">
+To reveal variation in trends, we applied two simple, non-parametric techniques: <strong>binning and averaging</strong>, which divides the X-axis into equal-width segments to highlight <em>nonlinear fluctuations</em> and <strong>LOESS smoothing</strong> (Locally Estimated Scatterplot Smoothing), which fits local regression curves to detect <em>changes in slope</em>, indicating possible switches (<code>frac = 0.1–0.4</code>, tested over 10 iterations).
+</p>
+
+<p style="text-align: justify;">
+Using both enabled <strong>cross-validation</strong> of switching behavior. We analyzed both <strong>raw and normalized data</strong> to ensure consistency and <strong>visually marked switching regions</strong> in all plots. For <strong>pairs 49–51</strong>, we identified temperature possibly responsible for the observed switches. Although <strong>pair 53</strong> contains extreme values, its <em>zoomed-in trend closely matches</em> that of pairs 49–51.
+</p>
+
+<p style="text-align: justify;">
+This approach detects <strong>local variation</strong> hidden beneath global trends, without relying on explicit causal inference models or statistical tests.
+</p>
+
   <div class="container">
     <table>
       <thead>
@@ -58,9 +74,9 @@
           <th>Ground Truth</th>
           <th>Plausible Direction</th>
           <th>Trend Shape</th>
-          <th>Switch Point 1</th>
-          <th>Switch Point 2</th>
-          <th>Switch Point 3</th>
+          <th class="wide-col">Switch Point 1 </th>
+          <th class="wide-col">Switch Point 2</th>
+          <th class="wide-col">Switch Point 3</th>
           <th>Strongest Region</th>
           <th>LOWESS (it=10) & Binning Stability</th>
           <th>Notes/Interpretation</th>
@@ -74,10 +90,10 @@
           <td>Temp → Ozone</td>
           <td>Ozone → Temp</td>
           <td>Nonlinear (S-shaped)</td>
-          <td>55–60</td>
-          <td>85–90</td>
+          <td>55–60, ~7°C</td>
+          <td>85–90, ~17°C</td>
           <td>—</td>
-          <td>60–85</td>
+          <td>60–85,  ~8°C to 16°C</td>
           <td>Stable at frac=0.3 and bin_size=12</td>
           <td>In mid-range of ozone shows strong rise in temperature</td>
           <td>Possible bidirectional/Threshold-based</td>
@@ -88,10 +104,10 @@
           <td>Temp → Ozone</td>
           <td>Ozone → Temp</td>
           <td>Nonlinear (S-shaped)</td>
-          <td>71–75</td>
-          <td>85–90</td>
-          <td>118–121</td>
-          <td>90–118  </td>
+          <td>71–75, ~3°C</td>
+          <td>85–90, ~4°C</td>
+          <td>118–121, ~12°C</td>
+          <td>90–118,  ~4°C to ~12°C </td>
           <td>Stable at frac=0.3 and bin_size=14</td>
           <td>Trend deepens at second switch; saturation possibly begins from third switch</td>
           <td>Possible bidirectional, Threshold-based causality (zone-specific behavior)</td>
@@ -103,10 +119,10 @@
             <td>Temp → Ozone</td>
             <td>Ozone → Temp</td>
             <td>Mixed slope, minor plateau</td>
-            <td>61–64</td>
-            <td>80–83</td>
-            <td>99–102</td>
-            <td>83–102</td>
+            <td>61–64, ~2°C</td>
+            <td>80–83, ~4°C</td>
+            <td>99–102, ~8°C</td>
+            <td>83–102, ~4°C to ~8°C</td>
             <td>Stable at frac=0.4 and bin_size=7</td>
             <td>Initially flat, slope sharpens post-80 µg/m³ then flattens again, possibly saturation zone</td>
             <td>Possible bidirectional, Threshold-based causality (zone-specific behavior)</td>
