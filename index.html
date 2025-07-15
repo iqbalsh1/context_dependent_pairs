@@ -3,262 +3,485 @@
 <head>
   <meta charset="UTF-8">
   <title>Context Dependent Data Pairs</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      font-size: 16px;
-      margin-left: auto;
-      margin-right: auto; 
-
-    }
-
-    h2 {
-      text-align: center;
-    }
-    .center-text {
-       text-align: center;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 70%; 
-      margin-top: 5px;
-      font-size: 14px;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-
-
-    th, td {
-      border: 1px solid #555;
-      padding: 10px 14px;
-      text-align: center;
-      vertical-align: top;
-    }
-
-    th {
-      background-color: #eee;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    .sub-label {
-      font-weight: bold;
-      margin-top: 8px;
-    }
-
-    .sub-link {
-      display: block;
-      margin-left: 10px;
-      margin-top: 4px;
-    }
-
-    .supporting-papers a {
-    text-decoration: underline;
+<style>
+  body {
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
   }
-  </style>
+
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .center-text {
+    text-align: center;
+  }
+
+  p {
+  margin-top: 20px;
+  margin-bottom: 40px; 
+  }
+
+  table {
+  border-collapse: collapse;
+  width: 85%;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+  th, td {
+    border: 1px solid #555;
+    padding: 10px 14px;
+    text-align: center;
+    vertical-align: top;
+  }
+   
+  .supporting-papers div {
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .supporting-papers a {
+    text-decoration: underline;
+   
+  }
+
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+
+  th {
+    background-color: #eee;
+  }
+
+  br {
+    display: none;
+  }
+
+</style>
 </head>
 <body>
 
+<div style="text-align: justify; max-width: 1400px; margin: 0 auto;">
   <h2>Context Dependent Data Pairs</h2>
-  <p class="center-text">
-      This page presents variable pairs from 
-      <a href="https://webdav.tuebingen.mpg.de/cause-effect/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: black">
-        TU cause-and-effect data pairs datasets
-      </a>
-      that exhibit context-dependent relationships. <br> Each pair includes data files, descriptive metadata, and scatter plots highlighting linear/non-linear trends and switching points. <br>
-      Discover key trends and explore the <a href="comparison.html" style="text-decoration: underline; color: black">Switching Point Summary</a> for comparison.  
-    </p>
+  <p>
+  This page presents context-dependent data pairs.
+  <strong>Pairs with Sr. No. (1–8)</strong> are from the
+  <a href="https://webdav.tuebingen.mpg.de/cause-effect/"
+     target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: blue;">
+    TU Cause-and-Effect Data Pairs Dataset
+  </a>,
+  <strong> pairs with Sr. No. (9–10)</strong> are from the
+  <a href="https://www.kaggle.com/datasets/mnassrib/jena-climate/data" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: blue;">Jena Climate Dataset </a>,
+  which includes weather and environmental variables.Each pair includes data files, descriptive metadata, scatter plots (both original and normalized), and papers supporting the ground truth.
+</p> 
+<table>
+    <colgroup>
+      <col style="width:1%;">
+      <col style="width:10%;">
+      <col style="width:10%;">
+      <col style="width:5%;">
+      <col style="width:7%;">
+      <col style="width:7%;">
+      <col style="width:7%;">
+      <col style="width:7%;">
+      <col style="width:45%;"> 
+    </colgroup>
 
-  <table>
-    <tr>
+    <tr>  
+      <th>Sr. No</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Ground Truth</th>
       <th>Data</th>
       <th>Description</th>
-      <th>Scatter Plot (PDF)</th>
-      <th>Switch Points (PDF)</th>
-      <th>Supporting Papers</th>
+      <th>Scatter Plot (Original)</th>
+      <th>Scatter Plot (Normalized)</th>
+      <th>Supporting Papers for Ground Truth</th>
     </tr>
 
     <!-- Pair 49 Row  -->
     <tr>
+      <td>1</td>
+      <td>Ozone</td>
+      <td>Temperature</td>
+      <td>y→x</td>
       <td><a href="data/pair0049.txt">pair0049.txt</a></td>
       <td><a href="data/pair0049_des.txt">pair0049_des.txt</a></td>
       <td>
-        <div class="sub-label">Original:</div>
         <a class="sub-link" href="data/pair49_1.pdf">pair49_1</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair49_2.pdf">pair49_2</a>
       </td>
       <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair49_1_sp.pdf" >pair49_1_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair49_2_sp.pdf" >pair49_2_sp</a>
+        <a class="sub-link" href="data/pair49_2.pdf">pair49_2</a>
       </td>
       <td class="supporting-papers">
-        <a href="https://doi.org/10.1029/2005JD006348" >Role of tropospheric ozone increases in 20th-century climate change </a><br><br>
-        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0019103517307820?via%3Dihub" >A planet with higher ozone concentration is warmer than one without it.</a>
+        <div><a href="https://doi.org/10.1029/2005JD006348" >Role of tropospheric ozone increases in 20th-century climate change </a></div>
+        <div><a href="https://www.sciencedirect.com/science/article/abs/pii/S0019103517307820?via%3Dihub" >A planet with higher ozone concentration is warmer than one without it.</a></div>      
       </td>
     </tr>
 
     <!-- Pair 50 Row  -->
 
     <tr>
+      <td>2</td>
+      <td>Ozone</td>
+      <td>Temperature</td>
+      <td>y→x</td>
       <td><a href="data/pair0050.txt" >pair0050.txt</a></td>
       <td><a href="data/pair0050_des.txt" >pair0050_des.txt</a></td>
       <td>
-        <div class="sub-label">Original:</div>
         <a class="sub-link" href="data/pair50_1.pdf" >pair50_1</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair50_2.pdf" >pair50_2</a>
       </td>
       <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair50_1_sp.pdf" >pair50_1_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair50_2_sp.pdf" >pair50_2_sp</a>
+       <a class="sub-link" href="data/pair50_2.pdf" >pair50_2</a>
       </td>
       <td class="supporting-papers">
-        <a href="https://www.giss.nasa.gov/research/features/archive/200402_tango/" >Ozone affects climate, and climate affects ozone</a><br><br>
-        <a href="https://www.nsf.gov/news/ozone-may-be-heating-planet-more-we-realize" >Ozone may be heating the planet more than we realize</a>
+        <div><a href="https://www.giss.nasa.gov/research/features/archive/200402_tango/" >Ozone affects climate, and climate affects ozone</a></div>
+        <div><a href="https://www.nsf.gov/news/ozone-may-be-heating-planet-more-we-realize" >Ozone may be heating the planet more than we realize</a></div>
       </td>
     </tr>
 
     <!-- Pair 51 Row  -->
     <tr>
+      <td>3</td>
+      <td>Ozone</td>
+      <td>Temperature</td>
+      <td>y→x</td>
       <td><a href="data/pair0051.txt" >pair0051.txt</a></td>
       <td><a href="data/pair0051_des.txt" >pair0051_des.txt</a></td>
       <td>
-        <div class="sub-label">Original:</div>
         <a class="sub-link" href="data/pair51_1.pdf" >pair51_1</a>
-        <div class="sub-label">Normalized:</div>
+      </td>
+      <td>       
         <a class="sub-link" href="data/pair51_2.pdf" >pair51_2</a>
       </td>
-      <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair51_1_sp.pdf" >pair51_1_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair51_2_sp.pdf" >pair51_2_sp</a>
-      </td>
       <td class="supporting-papers">
-        <a href="https://en.wikipedia.org/wiki/Ground-level_ozone" >Ozone in the troposphere contributes to global warming</a><br><br>
-        <a href="https://doi.org/10.1029/2008JD009829" >A 15% increase in ozone in the upper troposphere has a strong warming effect, while changes in lower levels have little impact.</a>
+        <div><a href="https://en.wikipedia.org/wiki/Ground-level_ozone" >Ozone in the troposphere contributes to global warming</a></div>
+        <div><a href="https://doi.org/10.1029/2008JD009829" >A 15% increase in ozone in the upper troposphere has a strong warming effect, while changes in lower levels have little impact.</a></div>
       </td>
     </tr>
 
     <!-- Pair 53 Row  -->
     <tr>
+      <td>4</td>
+      <td>Ozone</td>
+      <td>Wind Speed, Radiation, Temperature</td>
+      <td>y→x</td>
       <td><a href="data/pair0053.txt" >pair0053.txt</a></td>
       <td><a href="data/pair0053_des.txt" >pair0053_des.txt</a></td>
-      <td>
-        <div class="sub-label">Original:</div>
+      <td>     
         <a class="sub-link" href="data/pair53_1.1.pdf" >pair53_1.1</a>
         <a class="sub-link" href="data/pair53_1.2.pdf" >pair53_1.2</a>
         <a class="sub-link" href="data/pair53_1.3.pdf" >pair53_1.3</a>
-        <div class="sub-label">Normalized:</div>
+      </td>
+      <td>
         <a class="sub-link" href="data/pair53_2.1.pdf" >pair53_2.1</a>
         <a class="sub-link" href="data/pair53_2.2.pdf" >pair53_2.2</a>
         <a class="sub-link" href="data/pair53_2.3.pdf" >pair53_2.3</a>
       </td>
-      <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair53_1a_sp.pdf" >pair53_1.1_sp</a>
-        <a class="sub-link" href="data/pair53_1b_sp.pdf" >pair53_1.2_sp</a>
-        <a class="sub-link" href="data/pair53_1c_sp.pdf" >pair53_1.3_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair53_2a_sp.pdf">pair53_2.1_sp</a>
-        <a class="sub-link" href="data/pair53_2b_sp.pdf">pair53_2.2_sp</a>
-        <a class="sub-link" href="data/pair53_2c_sp.pdf">pair53_2.3_sp</a>
-      </td>
       <td class="supporting-papers">
-        <a href="https://arxiv.org/pdf/2404.17972" >Ozone changes temperature and wind patterns, suggesting it plays a role in shaping the climate.</a><br><br>
-        <a href="https://www.acap.asia/wp-content/uploads/Ozone.pdf" >Ozone traps Earth's heat and works like a greenhouse gas, raising temperature in some areas.</a><br><br>
-        <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/tropospheric-ozone" >Changes in tropospheric ozone in turn alter climate through radiative and biogenic feedbacks</a>
+        
+        <div><a href="https://arxiv.org/pdf/2404.17972" >Ozone changes temperature and wind patterns, suggesting it plays a role in shaping the climate.</a></div>
+        <div><a href="https://www.acap.asia/wp-content/uploads/Ozone.pdf" >Ozone traps Earth's heat and works like a greenhouse gas, raising temperature in some areas.</a></div>
+        <div><a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/tropospheric-ozone" >Changes in tropospheric ozone in turn alter climate through radiative and biogenic feedbacks</a></div>
 
       </td>
     </tr>
 
     <!-- Pair 65 Row  -->
     <tr>
+      <td>5</td>
+      <td>Stock Returns of Hang Seng Bank</td>
+      <td>Stock Return of HSBC Hldgs</td>
+      <td>x→y</td>
       <td><a href="data/pair0065.txt">pair0065.txt</a></td>
       <td><a href="data/pair0065_des.txt">pair0065_des.txt</a></td>
-      <td>
-        <div class="sub-label">Original:</div>
+      <td>   
         <a class="sub-link" href="data/pair65_1.pdf">pair65_1</a>
-        <div class="sub-label">Normalized:</div>
+      </td>
+      <td>
         <a class="sub-link" href="data/pair65_2.pdf">pair65_2</a>
       </td>
-      <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair65_1_sp.pdf">pair65_1_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair65_2_sp.pdf">pair65_2_sp</a>
+      <td class="supporting-papers">
+        <div><a href="https://arxiv.org/abs/2303.07244">The Stock Price Relationship between Holding Companies and Subsidiaries</a></div>
       </td>
-      <td class="supporting-papers"><a href="https://arxiv.org/abs/2303.07244">The Stock Price Relationship between Holding Companies and Subsidiaries</a></td><br><br>
     </tr>
 
     <!-- Pair 66 Row  -->
     <tr>
+      <td>6</td>
+      <td>Stock returns of Hutchison</td>
+      <td>Stock return of Cheung kong</td>
+      <td>x→y</td>
       <td><a href="data/pair0066.txt">pair0066.txt</a></td>
       <td><a href="data/pair0066_des.txt">pair0066_des.txt</a></td>
       <td>
-        <div class="sub-label">Original:</div>
         <a class="sub-link" href="data/pair66_1.pdf">pair66_1</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair66_2.pdf">pair66_2</a>
       </td>
       <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair66_1_sp.pdf">pair66_1_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair66_2_sp.pdf">pair66_2_sp</a>
+      <a class="sub-link" href="data/pair66_2.pdf">pair66_2</a>
       </td>
-      <td><a href="" target="_blank"></a></td>
+      <td class="supporting-papers">
+        <div><a href="https://arxiv.org/abs/2303.07244">The Stock Price Relationship between Holding Companies and Subsidiaries</a></div>
+      </td>
     </tr>
 
     <!-- Pair 67 Row  -->
     <tr>
+      <td>7</td>
+      <td>Stock returns of Cheung kong</td>
+      <td>Stock return of Sun Hung Kai</td>
+      <td>x→y</td>
       <td><a href="data/pair0067.txt">pair0067.txt</a></td>
       <td><a href="data/pair0067_des.txt">pair0067_des.txt</a></td>
       <td>
-        <div class="sub-label">Original:</div>
         <a class="sub-link" href="data/pair67_1.pdf">pair67_1</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair67_2.pdf">pair67_2</a>
       </td>
       <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair67_1_sp.pdf">pair67_1_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair67_2_sp.pdf">pair67_2_sp</a>
+      <a class="sub-link" href="data/pair67_2.pdf">pair67_2</a>
       </td>
-      <td><a href="" target="_blank"></a></td>
+      <td class="supporting-papers">
+        <div><a href="https://arxiv.org/abs/2303.07244">The Stock Price Relationship between Holding Companies and Subsidiaries</a></div>
+      </td>
     </tr>
 
     <!-- Pair 73 Row  -->
     <tr>
+      <td>8</td>
+      <td>CO2 Emission</td>
+      <td>Energy Use</td>
+      <td>y→x</td>
       <td><a href="data/pair0073.txt">pair0073.txt</a></td>
       <td><a href="data/pair0073_des.txt">pair0073_des.txt</a></td>
       <td>
-        <div class="sub-label">Original:</div>
         <a class="sub-link" href="data/pair73_1.pdf">pair73_1</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair73_2.pdf">pair73_2</a>
       </td>
       <td>
-        <div class="sub-label">Original:</div>
-        <a class="sub-link" href="data/pair73_1_sp.pdf">pair73_1_sp</a>
-        <div class="sub-label">Normalized:</div>
-        <a class="sub-link" href="data/pair73_2_sp.pdf">pair73_2_sp</a>
+        <a class="sub-link" href="data/pair73_2.pdf">pair73_2</a>
       </td>
-      <td class="supporting-papers"><a href="https://www.sciencedirect.com/science/article/pii/S2352484719305517?via%3Dihub" target="_blank">Relationship between energy consumption, CO2 emission and economic growth in ASEAN: Cointegration and causality model</a></td>
+      <td class="supporting-papers">
+        <div><a href="https://www.sciencedirect.com/science/article/pii/S2352484719305517?via%3Dihub" target="_blank">Relationship between energy consumption, CO2 emission and economic growth in ASEAN: Cointegration and causality model</a></div>
+      </td>
     </tr>    
-  </table>
 
+    <!-- Jena Data Pair  -->
+    <tr>
+      <td>9</td>
+      <td>Wind direction</td>
+      <td>Max wind speed</td>
+      <td>x→y</td>
+      <td><a href="data/pair001.txt">pair01.txt</a></td>
+      <td><a href="data/pair001_des.txt">pair01_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair001_1.pdf">pair01_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair001_2.pdf">pair01_2</a>
+      </td>
+      <td class="supporting-papers">
+        <div><a href="https://www.sciencedirect.com/science/article/abs/pii/S0266892024000638" target="_blank">Wind direction can affect wind speed, especially during storms or weather changes.</a></div>
+      </td>
+    </tr> 
+
+     <tr>
+      <td>10</td>
+      <td>Wind direction</td>
+      <td>Wind speed</td>
+      <td>x→y</td>
+      <td><a href="data/pair002.txt">pair02.txt</a></td>
+      <td><a href="data/pair002_des.txt">pair02_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair002_1.pdf">pair02_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair002_2.pdf">pair02_2</a>
+      </td>
+      <td class="supporting-papers">
+        <div><a href="https://www.sciencedirect.com/science/article/pii/S2950338824000238" target="_blank">At higher altitudes, wind direction shifts from northeast to east-northeast, and wind speed rises.</a></div>
+      </td>
+    </tr> 
+  </table>
+</div>
+<div style="text-align: justify; max-width: 1400px; margin: 0 auto;">
+
+  <h2> Time Dependent Data Pairs (Synthetic )</h2>
+  <table>
+    <colgroup>
+      <col style="width:1%;">
+      <col style="width:10%;">
+      <col style="width:10%;">
+      <col style="width:10%;">
+      <col style="width:10%;">
+    </colgroup>
+
+    <tr>  
+      <th>Sr. No</th>
+      <th>Data</th>
+      <th>Description</th>
+      <th>Scatter Plot (Original)</th>
+      <th>Switch Points</th>
+    </tr>
+
+    <!-- Pair 01 Row  -->
+    <tr>
+      <td>1</td>
+      <td><a href="data/pair01.txt">pair01.txt</a></td>
+      <td><a href="data/pair01_des.txt">pair01_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair01_1.pdf">pair01_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair01_2.pdf">pair01_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 02 Row  -->
+    <tr>
+      <td>2</td>
+      <td><a href="data/pair02.txt">pair02.txt</a></td>
+      <td><a href="data/pair02_des.txt">pair02_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair02_1.pdf">pair02_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair02_2.pdf">pair02_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 03 Row  -->
+    <tr>
+      <td>3</td>
+      <td><a href="data/pair03.txt">pair03.txt</a></td>
+      <td><a href="data/pair03_des.txt">pair03_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair03_1.pdf">pair03_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair03_2.pdf">pair03_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 04 Row  -->
+    <tr>
+      <td>4</td>
+      <td><a href="data/pair04.txt">pair04.txt</a></td>
+      <td><a href="data/pair04_des.txt">pair04_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair04_1.pdf">pair04_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair04_2.pdf">pair04_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 05 Row  -->
+    <tr>
+      <td>5</td>
+      <td><a href="data/pair05.txt">pair05.txt</a></td>
+      <td><a href="data/pair05_des.txt">pair05_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair05_1.pdf">pair05_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair05_2.pdf">pair05_2</a>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<div style="text-align: justify; max-width: 1400px; margin: 0 auto;">
+
+  <h2> Temperature Dependent Data Pairs (Synthetic )</h2>
+  <table>
+    <colgroup>
+      <col style="width:1%;">
+      <col style="width:10%;">
+      <col style="width:10%;">
+      <col style="width:10%;">
+      <col style="width:10%;">
+    </colgroup>
+
+    <tr>  
+      <th>Sr. No</th>
+      <th>Data</th>
+      <th>Description</th>
+      <th>Scatter Plot (Original)</th>
+      <th>Switch Points</th>
+    </tr>
+
+    <!-- Pair 06 Row  -->
+    <tr>
+      <td>1</td>
+      <td><a href="data/pair06.txt">pair06.txt</a></td>
+      <td><a href="data/pair06_des.txt">pair06_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair06_1.pdf">pair06_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair06_2.pdf">pair06_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 07 Row  -->
+    <tr>
+      <td>2</td>
+      <td><a href="data/pair07.txt">pair07.txt</a></td>
+      <td><a href="data/pair07_des.txt">pair07_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair07_1.pdf">pair07_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair07_2.pdf">pair07_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 08 Row  -->
+    <tr>
+      <td>3</td>
+      <td><a href="data/pair08.txt">pair08.txt</a></td>
+      <td><a href="data/pair08_des.txt">pair08_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair08_1.pdf">pair08_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair08_2.pdf">pair08_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 09 Row  -->
+    <tr>
+      <td>4</td>
+      <td><a href="data/pair09.txt">pair09.txt</a></td>
+      <td><a href="data/pair09_des.txt">pair09_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair09_1.pdf">pair09_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair09_2.pdf">pair09_2</a>
+      </td>
+    </tr>
+
+    <!-- Pair 10 Row  -->
+    <tr>
+      <td>5</td>
+      <td><a href="data/pair10.txt">pair10.txt</a></td>
+      <td><a href="data/pair10_des.txt">pair10_des.txt</a></td>
+      <td>
+        <a class="sub-link" href="data/pair10_1.pdf">pair10_1</a>
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair10_2.pdf">pair10_2</a>
+      </td>
+    </tr>
+
+  </table>
+</div>
 </body>
 </html>
 

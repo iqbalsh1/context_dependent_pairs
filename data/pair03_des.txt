@@ -1,0 +1,22 @@
+Time Dependent Pair03 Description
+
+a = 1.2
+sigma = 0.8
+Time Steps: 0–299
+Switch Point: t = 120
+
+Segment 1 (t=1 to t=119)
+X_t ~ N(0, 0.6400000000000001)
+Y_t = 1.2 * X_(t-1) + epsilon_Y
+epsilon_Y ~ N(0, 0.6400000000000001)
+
+Segment 2 (t=120 to t=299)
+Y_t ~ N(0, 0.6400000000000001)
+X_t = 1.2 * Y_(t-1) + epsilon_X
+epsilon_X ~ N(0, 0.6400000000000001)
+
+Initial Values:
+X_0 = 0
+Y_0 = 0
+
+Random Seed: 42

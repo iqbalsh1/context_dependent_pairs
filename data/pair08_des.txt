@@ -1,0 +1,21 @@
+Time Dependent Pair08 Description
+
+This dataset contains 400 samples with a temperature-dependent causal relationship between variables X and Y.
+The variable "Temperature" is uniformly sampled between 5 and 25 degrees.
+
+Causal threshold: Temperature = 15°C
+
+Segment 1 (T < 15):
+    Causal Direction: X → Y
+    Generation:
+        X ~ Normal(0, 1)
+        Y = 1.0 * X + ε, where ε ~ Normal(0, 0.7)
+
+Segment 2 (T ≥ 15):
+    Causal Direction: Y → X
+    Generation:
+        Y ~ Normal(0, 1)
+        X = -1.0 * Y + ε, where ε ~ Normal(0, 0.7)
+
+All values include Gaussian noise to simulate realistic measurement variations.
+The dataset does not include the regime label but causal influence shifts at the temperature threshold.

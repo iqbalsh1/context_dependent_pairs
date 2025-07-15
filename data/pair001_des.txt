@@ -1,0 +1,18 @@
+Information for pairs01:
+
+Jena Climate Dataset (Max Planck Institute for Biogeochemistry)data was recorded at the Weather Station at Jena, Germany
+taken from
+https://www.kaggle.com/datasets/mnassrib/jena-climate/data
+
+original data source:
+https://www.bgc-jena.mpg.de/wetter/
+
+x: wind direction (wd (deg))
+
+y: maximum wind speed (max. wv (m/s))
+
+Note: This data pair contains some missing values (max. wv (m/s) = -9999) that have been removed before visualization.
+The scatter plot therefore only includes valid wind velocity data.
+
+ground truth:
+x → y
