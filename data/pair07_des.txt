@@ -1,21 +1,28 @@
-Time Dependent Pair07 Description
+Time Dependent Causal Pair - Pair07
 
-This dataset contains 450 samples with a temperature-dependent causal relationship between variables X and Y.
-The variable "Temperature" is uniformly sampled between 0 and 25 degrees.
+General Info:
+Time Steps: 0–499
+Switch Point: t = 200
+Random Seed: 42
+Initial: X₀ = 0, Y₀ = 0
 
-Causal threshold: Temperature = 12°C
+Type:
+- Linear Time Series
+- Multimodal Inputs
 
-Segment 1 (T < 12):
-    Causal Direction: X → Y
-    Generation:
-        X ~ Normal(0, 1)
-        Y = 1.2 * X + ε, where ε ~ Normal(0, 0.9)
+Noise:
+- Mixed Gaussian and Laplace noise
+- ε ~ 0.5 * N(0, 0.81) + 0.5 * Laplace(0, 0.636)
 
-Segment 2 (T ≥ 12):
-    Causal Direction: Y → X
-    Generation:
-        Y ~ Normal(0, 1)
-        X = -0.7 * Y + ε, where ε ~ Normal(0, 0.9)
+Causal Structure:
+Segment 1 (t < 200): X → Y
+Xₜ ~ Mixture of N(-2, 0.81) and N(2, 0.81)
+Yₜ = 2.1 * X[t-1] + ε
 
-All values include Gaussian noise to simulate realistic measurement variations.
-The dataset does not include the regime label but causal influence shifts at the temperature threshold.
+Segment 2 (t ≥ 200): Y → X
+Yₜ ~ Mixture of N(-2, 0.81) and N(2, 0.81)
+Xₜ = 2.1 * Y[t-1] + ε
+
+Format:
+- .txt file: [time, X, Y]
+- 500 time steps, no missing values

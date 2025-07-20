@@ -1,21 +1,41 @@
-Time Dependent Pair06 Description
+Time Dependent Causal Pair - Pair06
 
-This dataset contains 500 samples with a temperature-dependent causal relationship between variables X and Y.
-The variable "Temperature" is uniformly sampled between -5 and 20 degrees.
+General Info:
+Total Time Steps: 0–499
+Switch Point: t = 200
+Random Seed: 42
+Initial Values: X_0 = 0, Y_0 = 0
 
-Causal threshold: Temperature = 10°C
+Type:
+- Nonlinear Time Series 
 
-Segment 1 (T < 10):
-    Causal Direction: X → Y
-    Generation:
-        X ~ Normal(0, 1)
-        Y = 2.0 * X + ε, where ε ~ Normal(0, 1.0)
+Noise:
+- Distribution: Mixed (Gaussian + Laplace)
+- Gaussian: ε ~ N(0, 0.25)
+- Laplace: ε ~ Laplace(0, 0.5)
+- Mix Ratio: 0.5 (Gaussian) + 0.5 (Laplace)
+- Independent at each time step
 
-Segment 2 (T ≥ 10):
-    Causal Direction: Y → X
-    Generation:
-        Y ~ Normal(0, 1)
-        X = -1.5 * Y + ε, where ε ~ Normal(0, 1.0)
+Sampling:
+- Pattern: Regular (1 sample per unit time)
+- No missing or irregular intervals
 
-All values include Gaussian noise to simulate realistic measurement variations.
-The dataset does not include the regime label but causal influence shifts at the temperature threshold.
+Parameters:
+Causal Strength (a) = 2.1 (linear term)
+Nonlinear Coefficient (b) = 1.0 (quadratic term)
+Gaussian Noise (sigma) = 0.5
+Laplace Noise (sigma) = 0.5
+Mix Ratio = 0.5
+
+Causal Structure:
+Segment 1 (Time 1 to 199): X → Y
+X_t = mixed_noise()
+Y_t = 2.1 * X_(t-1) + 1.0 * X_(t-1)^2 + mixed_noise()
+
+Segment 2 (200 to 499): Y → X
+Y_t = mixed_noise()
+X_t = 2.1 * Y_(t-1) + 1.0 * Y_(t-1)^2 + mixed_noise()
+
+Format:
+- .txt file with 3 columns: time, X, Y
+- Rows: 500 (time steps from 0 to 499)

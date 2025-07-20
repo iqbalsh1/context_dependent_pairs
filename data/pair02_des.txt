@@ -1,22 +1,39 @@
-Time Dependent Pair04 Description
+Time Dependent Causal Pair - Pair02
 
-a = 0.9
-sigma = 1.5
-Time Steps: 0�199
-Switch Point: t = 100
-
-Segment 1 (t=1 to t=99)
-X_t ~ N(0, 2.25)
-Y_t = 0.9 * X_(t-1) + epsilon_Y
-epsilon_Y ~ N(0, 2.25)
-
-Segment 2 (t=100 to t=199)
-Y_t ~ N(0, 2.25)
-X_t = 0.9 * Y_(t-1) + epsilon_X
-epsilon_X ~ N(0, 2.25)
-
-Initial Values:
-X_0 = 0
-Y_0 = 0
-
+General Info:
+Total Time Steps: 0–499
+Switch Point: t = 200
 Random Seed: 42
+Initial Values: X_0 = 0, Y_0 = 0
+
+Type:
+- Linear Time Series
+
+Noise:
+- Distribution: Student’s t (df=3)
+- ε ~ t(df=3) * 1.5 for both X and Y
+- Independent at each time step
+
+Sampling:
+- Pattern: Regular (1 sample per unit time)
+- No missing or irregular intervals
+
+Parameters:
+Causal Strength (a) = 1.8
+Noise (sigma) = 1.5
+Degrees of Freedom (df) = 3
+
+Causal Structure:
+Segment 1 (Time 1 to 199): X → Y
+X_t ~ t(df=3) * 1.5
+Y_t = 1.8 * X_(t-1) + epsilon_Y
+epsilon_Y ~ t(df=3) * 1.5
+
+Segment 2 (200 to 499): Y → X
+Y_t ~ t(df=3) * 1.5
+X_t = 1.8 * Y_(t-1) + epsilon_X
+epsilon_X ~ t(df=3) * 1.5
+
+Format:
+- .txt file with 3 columns: time, X, Y
+- Rows: 500 (time steps from 0 to 499)

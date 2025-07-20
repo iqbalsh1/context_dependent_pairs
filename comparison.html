@@ -48,22 +48,19 @@
 </head>
 <body>
 
-  <h1>Table for Switching Point Analysis</h1>
+  <h1>Summary of Analysis</h1>
 <p style="text-align: justify;">
-We examined scatterplots of variable pairs with <strong>multimodal structures</strong>, aiming to detect <strong>switching points</strong>local reversals or shifts in causal direction. For simplicity, the <strong>hypothesized cause</strong> was placed on the X-axis and the <strong>effect</strong> on the Y-axis.
+We analyzed scatterplots of variable pairs with <strong>multimodal pattern</strong>, aiming to detect <strong>switching points</strong> or shifts in causal direction.</p>
+
+<p style="text-align: justify;">
+We applied two simple, non-parametric techniques: <strong>binning and averaging</strong>, which divides the X-axis into equal-width segments to highlight <em>nonlinear fluctuations</em> and <strong>LOESS smoothing</strong> (Locally Estimated Scatterplot Smoothing), which fits local regression curves to detect <em>changes in slope</em>, indicating possible switches (<code>frac = 0.1–0.4</code>, tested over 10 iterations).
 </p>
 
 <p style="text-align: justify;">
-To reveal variation in trends, we applied two simple, non-parametric techniques: <strong>binning and averaging</strong>, which divides the X-axis into equal-width segments to highlight <em>nonlinear fluctuations</em> and <strong>LOESS smoothing</strong> (Locally Estimated Scatterplot Smoothing), which fits local regression curves to detect <em>changes in slope</em>, indicating possible switches (<code>frac = 0.1–0.4</code>, tested over 10 iterations).
+Switch Points are cross-valided using the PELT method from the ruptures library. 
+For <strong>pairs 49–51</strong>, we identified temperature possibly responsible for the observed switches.
 </p>
 
-<p style="text-align: justify;">
-Using both enabled <strong>cross-validation</strong> of switching behavior. We analyzed both <strong>raw and normalized data</strong> to ensure consistency and <strong>visually marked switching regions</strong> in all plots. For <strong>pairs 49–51</strong>, we identified temperature possibly responsible for the observed switches. Although <strong>pair 53</strong> contains extreme values, its <em>zoomed-in trend closely matches</em> that of pairs 49–51.
-</p>
-
-<p style="text-align: justify;">
-This approach detects <strong>local variation</strong> hidden beneath global trends, without relying on explicit causal inference models or statistical tests.
-</p>
 
   <div class="container">
     <table>
@@ -73,14 +70,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
           <th>Variable Pair</th>
           <th>Ground Truth</th>
           <th>Plausible Direction</th>
-          <th>Trend Shape</th>
           <th class="wide-col">Switch Point 1 </th>
           <th class="wide-col">Switch Point 2</th>
           <th class="wide-col">Switch Point 3</th>
           <th>Strongest Region</th>
           <th>LOWESS (it=10) & Binning Stability</th>
           <th>Notes/Interpretation</th>
-          <th>Structure</th>
+          <th>Plot</th>
         </tr>
       </thead>
       <tbody>
@@ -89,28 +85,26 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
           <td>Ozone, Temperature</td>
           <td>Temp → Ozone</td>
           <td>Ozone → Temp</td>
-          <td>Nonlinear (S-shaped)</td>
           <td>55–60, ~7°C</td>
-          <td>85–90, ~17°C</td>
+          <td>85–90, ~18°C</td>
           <td>—</td>
-          <td>60–85,  ~8°C to 16°C</td>
+          <td>60–85,  ~8°C to 17°C</td>
           <td>Stable at frac=0.3 and bin_size=12</td>
           <td>In mid-range of ozone shows strong rise in temperature</td>
-          <td>Possible bidirectional/Threshold-based</td>
+          <td><a href="data/pair49_1_sp.pdf" target="_blank">View</a> Bidirectional/Threshold-based</td>
         </tr>
         <tr>
           <td>Pair50</td>
           <td>Ozone, Temperature</td>
           <td>Temp → Ozone</td>
           <td>Ozone → Temp</td>
-          <td>Nonlinear (S-shaped)</td>
-          <td>71–75, ~3°C</td>
-          <td>85–90, ~4°C</td>
+          <td>71–75, ~2°C</td>
+          <td>85-90, ~4°C</td>
           <td>118–121, ~12°C</td>
-          <td>90–118,  ~4°C to ~12°C </td>
+          <td>90–118,  ~3°C to ~11°C </td>
           <td>Stable at frac=0.3 and bin_size=14</td>
-          <td>Trend deepens at second switch; saturation possibly begins from third switch</td>
-          <td>Possible bidirectional, Threshold-based causality (zone-specific behavior)</td>
+          <td>Deepens at second switch; saturation possibly begins from third switch</td>
+          <td><a href="data/pair50_1_sp.pdf" target="_blank">View</a> Bidirectional/Threshold-based</td>
         </tr>
 
         <tr>
@@ -118,14 +112,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
             <td>Ozone, Temperature</td>
             <td>Temp → Ozone</td>
             <td>Ozone → Temp</td>
-            <td>Mixed slope, minor plateau</td>
             <td>61–64, ~2°C</td>
             <td>80–83, ~4°C</td>
-            <td>99–102, ~8°C</td>
+            <td>99–102, ~12°C</td>
             <td>83–102, ~4°C to ~8°C</td>
             <td>Stable at frac=0.4 and bin_size=7</td>
             <td>Initially flat, slope sharpens post-80 µg/m³ then flattens again, possibly saturation zone</td>
-            <td>Possible bidirectional, Threshold-based causality (zone-specific behavior)</td>
+            <td><a href="data/pair51_1_sp.pdf" target="_blank">View</a> Bidirectional/Threshold-based</td>
         </tr>
 
         <tr>
@@ -133,14 +126,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
             <td>Ozone, Wind Speed</td>
             <td>Wind → Ozone</td>
             <td>Ozone → Wind</td>
-            <td>Nonlinear (rising)</td>
             <td>130–155</td>
             <td>330–360</td>
             <td>—</td>
             <td>155–330</td>
             <td>Stable at frac=0.1, bin_size=5</td>
             <td>Wind increases rapidly up to ~330, then slightly flattens</td>
-            <td>Possible indirect or feedback influence of ozone</td>
+            <td><a href="data/pair53_1a_sp.pdf" target="_blank">View</a> Indirect/feedback influence of ozone</td>
         </tr>
 
         <tr>
@@ -148,14 +140,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
             <td>Ozone, Global Radiation</td>
             <td>Radiation → Ozone</td>
             <td>Ozone → Radiation</td>
-            <td>Nonlinear (saturation)</td>
             <td>130–150</td>
             <td>330–350  </td>
             <td>420–440  </td>
             <td>150–330  </td>
             <td>Stable at frac=0.1, bin_size=6</td>
             <td>Radiation increases fast at low ozone but flattens later, suggests saturation</td>
-            <td>Bidirectional / Mutual influence</td>
+            <td><a href="data/pair53_1b_sp.pdf" target="_blank">View</a> Bidirectional/Mutual influence</td>
         </tr>
 
     <tr>
@@ -163,14 +154,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
         <td>Ozone, Temperature</td>
         <td>Temp → Ozone</td>
         <td>Ozone → Temperature</td>
-        <td>Nonlinear (saturation)</td>
         <td>160–180 </td>
         <td>320–340 </td>
         <td>420–440 </td>
         <td>180–320 </td>
         <td>Stable trend at frac=0.1, bin_size=7</td>
         <td>Initial rise in temperature slows after 340; second switch shows possible saturation</td>
-        <td>Threshold-based / Possible bidirectional</td>
+        <td><a href="data/pair53_1c_sp.pdf" target="_blank">View</a> Threshold-based/Possible bidirectional</td>
     </tr>
 
     <tr>
@@ -178,14 +168,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
         <td>Stock return of a parent company, Stock return of its subsidiary</td>
         <td>Subsidairy → Parent</td>
         <td>Parent → Subsidairy</td>
-        <td>Partially Linear</td>
         <td>−0.03 to −0.02</td>
         <td>—</td>
         <td>—</td>
         <td>&gt; −0.02</td>
         <td>Stable at frac=0.4 and bin_size=9</td>
         <td>Mid-to-high HSBC returns show the strongest positive association with subsidiaries returns.</td>
-        <td>Context Dependent (ownership structure, Market perception)</td>
+        <td><a href="data/pair65_sp.pdf" target="_blank">View</a> Ownership_structure/Market perception</td>
     </tr>
 
     <tr>
@@ -193,14 +182,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
         <td>Stock return of a parent company, Stock return of its subsidiary</td>
         <td>Subsidairy → Parent</td>
         <td>Parent → Subsidairy</td>
-        <td>Partially Linear</td>
         <td>−0.048 to −0.06</td>
         <td>—</td>
         <td>—</td>
         <td>&gt; −0.05</td>
         <td>Stable at frac=0.2 and bin_size=9</td>
         <td>Suggests steady positive co-movement with minimal nonlinear trend</td>
-        <td>Context Dependent, ownership structure, Market perception</td>
+        <td><a href="data/pair66_sp.pdf" target="_blank">View</a> Ownership_structure/Market perception</td>
     </tr>
 
     <tr>
@@ -208,14 +196,13 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
         <td>Stock return of a parent company, Stock return of its subsidiary</td>
         <td>Subsidairy → Parent</td>
         <td>Parent → Subsidairy</td>
-        <td>Partially Linear</td>
         <td>−0.03 to −0.04</td>
         <td>—</td>
         <td>—</td>
         <td>&gt; −0.03</td>
         <td>Stable trend at frac=0.3 and bin_size=11</td>
         <td>Returns flatten before −0.03, then show a clear linear rise.</td>
-        <td>Context Dependent, ownership structure, Market perception</td>
+        <td><a href="data/pair67_sp.pdf" target="_blank">View</a> Ownership_structure/Market perception</td>
     </tr>
 
     <tr>
@@ -223,14 +210,41 @@ This approach detects <strong>local variation</strong> hidden beneath global tre
         <td>Carbon dioxide, energy use</td>
         <td>Energy Use → Carbon dioxide emission</td>
         <td>Carbon dioxide emission → Energy Use</td>
-        <td>Nonlinear</td>
         <td>15 to 17</td>
         <td>29 to 31</td>
         <td>—</td>
         <td>10 to 29</td>
         <td>Stable at frac=0.1 and bin_size=7</td>
         <td>Energy use increases steeply with emissions until ~30 units, then flattens. Indicates saturation, likely tied to infrastructure or efficiency ceilings.</td>
-        <td>Indirect causality: CO₂ emissions → policy → energy use</td>
+        <td><a href="data/pair73_sp.pdf" target="_blank">View</a> Indirect causality: CO₂ emissions → policy → energy use</td>
+    </tr>
+
+    <tr>
+        <td>Pair01</td>
+        <td>Wind direction, Max wind speed</td>
+        <td>Wind direction → Max wind speed</td>
+        <td>Max wind speed → Wind direction</td>
+        <td>~50°</td>
+        <td>~125°</td>
+        <td>200°</td>
+        <td>—</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+     <tr>
+        <td>Pair02</td>
+        <td>Wind direction, Wind speed</td>
+        <td>Wind direction → Wind speed</td>
+        <td>Wind speed → Wind direction</td>
+        <td>~50°</td>
+        <td>~125°</td>
+        <td>210°</td>
+        <td>—</td>
+        <td></td>
+        <td></td>
+        <td></td>
     </tr>
       </tbody>
     </table>

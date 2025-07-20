@@ -1,4 +1,4 @@
-Time Dependent Causal Pair - Pair02c
+Time Dependent Causal Pair - Pair04
 
 General Info:
 Total Time Steps: 0–499
@@ -7,13 +7,11 @@ Random Seed: 42
 Initial Values: X_0 = 0, Y_0 = 0
 
 Type:
-- Linear Time Series
+- Nonlinear Time Series (Polynomial)
 
 Noise:
-- Distribution: Mixed (Gaussian + Laplace)
-- Gaussian: ε ~ N(0, 0.25)
-- Laplace: ε ~ Laplace(0, 0.5)
-- Mix Ratio: 0.5 (Gaussian) + 0.5 (Laplace)
+- Distribution: Gaussian (Normal)
+- ε ~ N(0, 0.48) for both X and Y
 - Independent at each time step
 
 Sampling:
@@ -21,19 +19,20 @@ Sampling:
 - No missing or irregular intervals
 
 Parameters:
-Causal Strength (a) = 2.2
-Gaussian Noise (sigma) = 0.5
-Laplace Noise (sigma) = 0.5
-Mix Ratio = 0.5
+Causal Strength (a) = 1.2 (linear term)
+Nonlinear Coefficient (b) = 0.5 (quadratic term)
+Noise (sigma) = 0.7
 
 Causal Structure:
 Segment 1 (Time 1 to 199): X → Y
-X_t = mixed_noise()
-Y_t = 2.2 * X_(t-1) + mixed_noise()
+X_t ~ N(0, 0.48)
+Y_t = 1.2 * X_(t-1) + 0.5 * X_(t-1)^2 + epsilon_Y
+epsilon_Y ~ N(0, 0.48)
 
 Segment 2 (200 to 499): Y → X
-Y_t = mixed_noise()
-X_t = 2.2 * Y_(t-1) + mixed_noise()
+Y_t ~ N(0, 0.48)
+X_t = 1.2 * Y_(t-1) + 0.5 * Y_(t-1)^2 + epsilon_X
+epsilon_X ~ N(0, 0.48)
 
 Format:
 - .txt file with 3 columns: time, X, Y
