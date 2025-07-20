@@ -1,0 +1,45 @@
+Temperature-Dependent Synthetic Datasets (Pairs 09–11)
+
+Overview
+--------
+- Three synthetic temperature-dependent datasets (pair09–pair11), each with two variables (X, Y).
+- Causal direction changes based on temperature:
+  - Pair 09: Shift at 10°C
+  - Pair 10: Shift at 15°C
+  - Pair 11: Shift at 8°C
+- Each dataset contains 500–1500 samples, regularly sampled, and has no missing values.
+
+Variations
+----------
+- Functional form: Linear
+- Noise types:
+  - Gaussian: ε ~ N(0, σ²)
+  - Laplace: ε ~ Laplace(0, σ)
+  - Mixture: Normal and Laplace distributions
+- Causal strength: Medium
+
+Causal Models
+-------------
+- Linear:
+  - Segment 1: Y = a₁ × X + ε_Y
+  - Segment 2: X = a₂ × Y + ε_X
+
+Special Cases
+-------------
+- Pair09: Linear, Gaussian noise
+- Pair10: Linear, Gaussian noise
+- Pair11: Linear, Laplace noise
+
+Parameters
+----------
+- Initial values: X₀ = 0, Y₀ = 0
+- Random seed: 42
+- Sampling: Regular (1/unit temperature)
+
+Format
+------
+- .txt files: X, Y, Temperature
+- Metadata: pair##_des.txt
+- Plots:
+  - pair##_1.pdf: scatter plot
+  - pair##_2.pdf: causal shift points
