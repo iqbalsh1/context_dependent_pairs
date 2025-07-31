@@ -16,3 +16,24 @@ http://www.mathe.tu-freiberg.de/Stoyan/umwdat.html#Top
 
 ground truth:
 y --> x
+
+
+
+
+Note:
+
+Pair0053a
+Change points were found at indices 245, 495, and 740. However, the wind values at 495 (560.90) and 740 (151.13) are too high to be realistic.
+Only the first change point at 245 (Wind = 8.25) is considered valid.
+Causal direction is consistent across all segments: ozone → wind.
+
+Pair0053b
+Change points were found at indices 245, 495, and 740. The radiation values at 495 (573.80) and 740 (160.53) are unusually high and likely unrealistic.
+Only the first point at 245 (Radiation = 37.94) is considered valid.
+Causal relationships vary across segments, with a switch from radiation → ozone to ozone → radiation after the first change point.
+
+Pair0053c
+Three change points were found, but the temperatures at 495 (540.40°C) and 740 (150.24°C) are too high to be realistic.
+Only the first point at 245 (Temperature = 37.14°C) is used as ground truth.
+
+
