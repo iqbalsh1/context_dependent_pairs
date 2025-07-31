@@ -1,23 +1,23 @@
-Time Dependent Pair10 Description
+Time-Dependent Pair10 Description
 
 This dataset contains 1000 samples with a temperature-dependent causal relationship between variables X and Y.
-The variable "Temperature" is uniformly sampled between -10 and 30 degrees.
+Temperature is uniformly sampled from the range [−10°C, 30°C].
 
-Causal threshold: Temperature = 15°C
+A causal shift occurs at the threshold T = 15°C:
 
-Segment 1 (T < 15):
+Segment 1 (T < 15°C):
     Causal Direction: X → Y
     Generation:
-        X ~ Mixture of Normal(-8, 1.5) and Normal(12, 3.0)
-        Y = 1.8 * X + ε, where ε ~ Normal(0, 1.5)
+        X ~ λ · 𝒩(−8, 1.5²) + (1−λ) · 𝒩(12, 3.0²), with λ = 0.7
+        Y = 1.8 · X + ε,     ε ~ 𝒩(0, 1.5²)
 
-Segment 2 (T ≥ 15):
+Segment 2 (T ≥ 15°C):
     Causal Direction: Y → X
     Generation:
-        Y ~ Mixture of Normal(-8, 1.5) and Normal(12, 3.0)
-        X = -2.2 * Y + ε, where ε ~ Normal(0, 1.5)
+        Y ~ λ · 𝒩(−8, 1.5²) + (1−λ) · 𝒩(12, 3.0²), with λ = 0.7
+        X = −2.2 · Y + ε,     ε ~ 𝒩(0, 1.5²)
 
-All values include Gaussian noise to simulate realistic measurement variations.
-The dataset does not include the regime label but causal influence shifts at the temperature threshold.
+Noise is drawn from a Gaussian distribution with mean 0 and standard deviation 1.5.
+Regime labels are not included. The causal direction changes at T = 15°C.
 
-Random seed: 42 (for reproducibility)
+Random seed: 42

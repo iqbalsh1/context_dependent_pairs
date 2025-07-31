@@ -59,9 +59,9 @@
     background-color: #eee;
   }
 
-  br {
+  /* br {
     display: none;
-  }
+  } */
 
 </style>
 </head>
@@ -103,7 +103,7 @@
       <th>Description</th>
       <th>Scatter Plot (Original)</th>
       <th>Scatter Plot (Normalized)</th>
-      <th>Switch Points</th>
+      <th>Switch Points and ground truth between them</th>
       <th>Supporting Papers for Ground Truth</th>
     </tr>
 
@@ -293,7 +293,7 @@
       <td>
         <a class="sub-link" href="data/pair001_2.pdf">pair001_2</a>
       </td>
-      <td>~125°, ~200°C</td>
+      <td>~125°, ~200°</td>
       <td class="supporting-papers">
         <div><a href="https://www.sciencedirect.com/science/article/abs/pii/S0266892024000638" target="_blank">Wind direction can affect wind speed, especially during storms or weather changes.</a></div>
       </td>
@@ -312,7 +312,7 @@
       <td>
         <a class="sub-link" href="data/pair002_2.pdf">pair002_2</a>
       </td>
-      <td>~50°, ~210°C</td>
+      <td>~50°, ~210°</td>
       <td class="supporting-papers">
         <div><a href="https://www.sciencedirect.com/science/article/pii/S2950338824000238" target="_blank">At higher altitudes, wind direction shifts from northeast to east-northeast, and wind speed rises.</a></div>
       </td>
@@ -328,6 +328,8 @@
       <col style="width:10%;">
       <col style="width:10%;">
       <col style="width:10%;">
+      <col style="width:15%;">
+      <col style="width:30%;">
       <col style="width:10%;">
     </colgroup>
 
@@ -336,7 +338,10 @@
       <th>Data</th>
       <th>Description</th>
       <th>Scatter Plot</th>
-      <th>Switch Points</th>
+      <th>Switch Points and ground truth between them</th>
+      <th>Ground Truth Equation</th>
+      <th>Visualization</th>
+  
     </tr>
 
     <!-- Pair 01 Row  -->
@@ -348,7 +353,22 @@
         <a class="sub-link" href="data/pair01_1.pdf">pair01_1</a>
       </td>
       <td>
-        <a class="sub-link" href="data/pair01_2.pdf">pair01_2</a>
+         t=200 <br>
+         [1,199]: X → Y<br>
+         [200,499]: Y → X
+      </td>
+      <td>
+        <strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ 𝓝(0, σ²)<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + ε<sub>Y</sub>,  ε<sub>Y</sub> ~ 𝓝(0, σ²)<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ 𝓝(0, σ²)<br>
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + ε<sub>X</sub>,  ε<sub>X</sub> ~ 𝓝(0, σ²)
+      </td>
+
+     <td>
+        <a class="sub-link" href="data/pair01_2.pdf">View</a>
       </td>
     </tr>
 
@@ -360,8 +380,24 @@
       <td>
         <a class="sub-link" href="data/pair02_1.pdf">pair02_1</a>
       </td>
+      
+     <td>
+        t=200 <br>
+        [1,199]: X → Y<br>
+        [200,499]: Y → X
+      </td>
       <td>
-        <a class="sub-link" href="data/pair02_2.pdf">pair02_2</a>
+        <strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ t(df) &times; &sigma;<br>
+        Y<sub>t</sub> = a &times; X<sub>t−1</sub> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ t(df) &times; &sigma;<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ t(df) &times; &sigma;<br>
+        X<sub>t</sub> = a &times; Y<sub>t−1</sub> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ t(df) &times; &sigma;
+      </td>
+
+      <td>
+        <a class="sub-link" href="data/pair02_2.pdf">View</a>
       </td>
     </tr>
 
@@ -374,7 +410,22 @@
         <a class="sub-link" href="data/pair03_1.pdf">pair03_1</a>
       </td>
       <td>
-        <a class="sub-link" href="data/pair03_2.pdf">pair03_2</a>
+        t=200 <br>
+        [1,199]: X → Y<br>
+        [200,499]: Y → X
+      </td>
+      <td>
+        <strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ mixed noise<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ mixed noise
+      </td>
+
+      <td>
+        <a class="sub-link" href="data/pair03_2.pdf">View</a>
       </td>
     </tr>
 
@@ -387,7 +438,21 @@
         <a class="sub-link" href="data/pair04_1.pdf">pair04_1</a>
       </td>
       <td>
-        <a class="sub-link" href="data/pair04_2.pdf">pair04_2</a>
+         t=200 <br>
+        [1,199]: X → Y<br>
+        [200,499]: Y → X
+      </td>
+      <td>
+        <strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)<br>
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)
+      </td>
+      <td>
+        <a class="sub-link" href="data/pair04_2.pdf">View</a>
       </td>
     </tr>
 
@@ -400,7 +465,22 @@
         <a class="sub-link" href="data/pair05_1.pdf">pair05_1</a>
       </td>
       <td>
-        <a class="sub-link" href="data/pair05_2.pdf">pair05_2</a>
+         t=200 <br>
+        [1,199]: X → Y<br>
+        [200,499]: Y → X
+      </td>
+      <td>
+        <strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ t(df) × &sigma;<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ t(df) × &sigma;<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ t(df) × &sigma;<br>
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ t(df) × &sigma;
+      </td>
+
+      <td>
+        <a class="sub-link" href="data/pair05_2.pdf">View</a>
       </td>
     </tr>
 
@@ -413,7 +493,22 @@
         <a class="sub-link" href="data/pair06_1.pdf">pair06_1</a>
       </td>
       <td>
-        <a class="sub-link" href="data/pair06_2.pdf">pair06_2</a>
+         t=200 <br>
+        [1,199]: X → Y<br>
+        [200,499]: Y → X
+      </td>
+      <td>
+        <strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ mixed noise<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ mixed noise
+      </td>
+
+      <td>
+        <a class="sub-link" href="data/pair06_2.pdf">View</a>
       </td>
     </tr>
 
@@ -426,7 +521,21 @@
         <a class="sub-link" href="data/pair07_1.pdf">pair07_1</a>
       </td>
       <td>
-        <a class="sub-link" href="data/pair07_2.pdf">pair07_2</a>
+         t=200 <br>
+        [1,199]: X → Y<br>
+        [200,499]: Y → X
+      </td>
+      <td><strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2, &sigma;<sup>2</sup>)<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;, &epsilon; ~ 0.5 · 𝓝(0, &sigma;<sup>2</sup>) + 0.5 · Laplace(0, &sigma;/√2)<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2, &sigma;<sup>2</sup>)<br>
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + &epsilon;, &epsilon; ~ 0.5 · 𝓝(0, &sigma;<sup>2</sup>) + 0.5 · Laplace(0, &sigma;/√2)
+
+        </td>
+      <td>
+        <a class="sub-link" href="data/pair07_2.pdf">View</a>
       </td>
     </tr>
 
@@ -439,7 +548,20 @@
         <a class="sub-link" href="data/pair08_1.pdf">pair08_1</a>
       </td>
       <td>
-        <a class="sub-link" href="data/pair08_2.pdf">pair08_2</a>
+         t=200 <br>
+        [1,199]: X → Y<br>
+        [200,499]: Y → X
+      </td>
+      <td><strong>t &lt; switch point:</strong><br>
+        X<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2,&sigma;<sup>2</sup>)<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;,  &epsilon; ~ t(df) × &sigma;<br><br>
+
+        <strong>t &ge; switch point:</strong><br>
+        Y<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2, &sigma;<sup>2</sup>)<br>
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + &epsilon;,  &epsilon; ~ t(df) × &sigma;
+        </td>
+      <td>
+        <a class="sub-link" href="data/pair08_2.pdf">View</a>
       </td>
     </tr>
 
@@ -455,6 +577,8 @@
       <col style="width:10%;">
       <col style="width:10%;">
       <col style="width:10%;">
+      <col style="width:20%;">
+      <col style="width:30%;">
       <col style="width:10%;">
     </colgroup>
 
@@ -463,7 +587,9 @@
       <th>Data</th>
       <th>Description</th>
       <th>Scatter Plot</th>
-      <th>Switch Points</th>
+      <th>Switch Points and ground truth between them</th>
+      <th>Ground Truth Equation</th>
+      <th>Visualization</th>
     </tr>
 
     <!-- Pair 09 Row  -->
@@ -474,8 +600,19 @@
       <td>
         <a class="sub-link" href="data/pair09_1.pdf">pair09_1</a>
       </td>
+      <td><strong>Temperature &lt; 10°C:</strong> X → Y<br>
+          <strong>Temperature &ge; 10°C:</strong> Y → X
+      </td>
+      <td><strong>Temperature &lt; 10°C:</strong><br>
+          X ~ λ · 𝓝(μ₁, σ₁²) + (1 − λ) · 𝓝(μ₂, σ₂²)<br>
+          Y<sub>t</sub> = a × X + ε, ε ~ 𝓝(0, σ²)<br><br>
+
+          <strong>Temperature ≥ 10°C:</strong><br>
+          Y ~ λ · 𝓝(μ₁, σ₁²) + (1 − λ) · 𝓝(μ₂, σ₂²)<br>
+          X<sub>t</sub> = b × Y + ε, ε ~ 𝓝(0, σ²)
+    </td>
       <td>
-        <a class="sub-link" href="data/pair09_2.pdf">pair09_2</a>
+        <a class="sub-link" href="data/pair09_2.pdf">View</a>
       </td>
     </tr>
 
@@ -485,10 +622,22 @@
       <td><a href="data/pair10.txt">pair10.txt</a></td>
       <td><a href="data/pair10_des.txt">pair10_des.txt</a></td>
       <td>
-        <a class="sub-link" href="data/pair08_1.pdf">pair10_1</a>
+        <a class="sub-link" href="data/pair10_1.pdf">pair10_1</a>
+      </td>
+      <td><strong>Temperature &lt; 15°C:</strong> X → Y<br>
+          <strong>Temperature &ge; 15°C:</strong> Y → X
+      </td>
+      <td><strong>Temperature &lt; 15°C:</strong><br>
+          X ~ λ · 𝓝(μ₁, σ₁²) + (1 − λ) · 𝓝(μ₂, σ₂²)<br>
+          Y<sub>t</sub> = a · X<sub>t</sub> + ε,  ε ~ 𝓝(0, σ²)<br><br>
+
+          <strong>Temperature &ge; 15°C:</strong><br>
+          Y ~ λ · 𝓝(μ₁, σ₁²) + (1 − λ) · 𝓝(μ₂, σ₂²)<br>
+          X<sub>t</sub> = b · Y<sub>t</sub> + ε,  ε ~ 𝓝(0, σ²)
+
       </td>
       <td>
-        <a class="sub-link" href="data/pair10_2.pdf">pair10_2</a>
+        <a class="sub-link" href="data/pair10_2.pdf">View</a>
       </td>
     </tr>
 
@@ -500,8 +649,20 @@
       <td>
         <a class="sub-link" href="data/pair11_1.pdf">pair11_1</a>
       </td>
+      <td><strong>Temperature &lt; 8°C:</strong> X → Y<br>
+        <strong>Temperature &ge; 8°C:</strong> Y → X
+      </td>
+      <td><strong>Temperature &lt; 8°C:</strong><br>
+        X ~ λ · 𝓝(μ₁, σ₁²) + (1 − λ) · 𝓝(μ₂, σ₂²)<br>
+        Y<sub>t</sub> = a · X<sub>t</sub> + ε,  ε ~ 𝓛(0, b)<br><br>
+
+        <strong>Temperature &ge; 8°C:</strong><br>
+        Y ~ λ · 𝓝(μ₁, σ₁²) + (1 − λ) · 𝓝(μ₂, σ₂²)<br>
+        X<sub>t</sub> = c · Y<sub>t</sub> + ε,  ε ~ 𝓛(0, b)
+
+      </td>
       <td>
-        <a class="sub-link" href="data/pair11_2.pdf">pair11_2</a>
+        <a class="sub-link" href="data/pair11_2.pdf">View</a>
       </td>
     </tr>
     

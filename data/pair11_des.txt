@@ -1,23 +1,23 @@
-Time Dependent Pair08 Description
+Time-Dependent Pair11 Description
 
-This dataset contains 1000 samples with a non-linear temperature-dependent causal relationship between variables X and Y.
-The variable "Temperature" is uniformly sampled between -10 and 30 degrees.
+This dataset contains 1500 samples with a temperature-dependent causal relationship between variables X and Y.
+Temperature is uniformly sampled from the range [-5°C, 20°C].
 
-Causal threshold: Temperature = 15°C
+A causal shift occurs at the threshold T = 8°C:
 
-Segment 1 (T < 15):
+Segment 1 (T < 8°C):
     Causal Direction: X → Y
     Generation:
-        X ~ Uniform(-5, 5)
-        Y = 2.0 * X^2 + ε, where ε ~ Gaussian(0, 1.0)
+        X ~ λ · 𝒩(−3, 1.0²) + (1−λ) · 𝒩(8, 2.5²), with λ = 0.5
+        Y = 2.0 · X + ε,     ε ~ Laplace(0, 1.0)
 
-Segment 2 (T ≥ 15):
+Segment 2 (T ≥ 8°C):
     Causal Direction: Y → X
     Generation:
-        Y ~ Uniform(-5, 5)
-        X = -1.5 * sin(Y) + ε, where ε ~ Laplace(0, 1.0)
+        Y ~ λ · 𝒩(−3, 1.0²) + (1−λ) · 𝒩(8, 2.5²), with λ = 0.5
+        X = −1.5 · Y + ε,     ε ~ Laplace(0, 1.0)
 
-All values include mixed noise types (Gaussian and Laplace) to simulate realistic measurement variations.
-The dataset does not include the regime label but causal influence shifts at the temperature threshold.
+Noise terms are sampled from a Laplace distribution with mean 0 and scale 1.0.
+Regime labels are not provided. The causal direction changes at T = 8°C.
 
 Random seed: 42
