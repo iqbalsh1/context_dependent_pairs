@@ -28,7 +28,7 @@
 
   table {
   border-collapse: collapse;
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   font-size: 14px;
 }
@@ -143,7 +143,7 @@
       <td>
        <a class="sub-link" href="data/pair50_2.pdf" >pair50_2</a>
       </td>
-      <td>Switches at –3°C, 1.5°C, 12°C:<br>
+      <td>Switches at <br> –3°C, 1.5°C, 12°C:<br>
         –3°C ≤ T < 1.5°C: x→y <br>
         T ≥ 1.5°C: y→x
       </td>
@@ -266,7 +266,10 @@
       <td>
       <a class="sub-link" href="data/pair67_2.pdf">pair67_2</a>
       </td>
-      <td>~-0.03</td>
+      <td>Switch at Index 1085: <br>
+          Index < 1085: y→x <br>
+          Index ≥ 1085: x→y
+      </td>
       <td class="supporting-papers">
         <div><a href="https://arxiv.org/abs/2303.07244">The Stock Price Relationship between Holding Companies and Subsidiaries</a></div>
       </td>
@@ -338,12 +341,12 @@
   <table>
        <colgroup>
       <col style="width:1%;">
-      <col style="width:10%;">
-      <col style="width:10%;">
-      <col style="width:10%;">
-      <col style="width:20%;">
-      <col style="width:30%;">
-      <col style="width:10%;">
+      <col style="width:15%;">
+      <col style="width:15%;">
+      <col style="width:15%;">
+      <col style="width:15%;">
+      <col style="width:40%;">
+      <col style="width:4%;">
     </colgroup>
 
     <tr>  
@@ -373,11 +376,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 𝓝(0, σ²)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + ε<sub>Y</sub>,  ε<sub>Y</sub> ~ 𝓝(0, σ²)<br><br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + ε<sub>Y</sub>, ε<sub>Y</sub> ~ 𝓝(0, σ²)<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 𝓝(0, σ²)<br>
-        X<sub>t</sub> = a × Y<sub>t−1</sub> + ε<sub>X</sub>,  ε<sub>X</sub> ~ 𝓝(0, σ²)
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + ε<sub>X</sub>, ε<sub>X</sub> ~ 𝓝(0, σ²)
       </td>
 
      <td>
@@ -402,11 +405,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ t(df) &times; &sigma;<br>
-        Y<sub>t</sub> = a &times; X<sub>t−1</sub> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ t(df) &times; &sigma;<br><br>
+        Y<sub>t</sub> = a &times; X<sub>t−1</sub> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ t(df) &times; &sigma;<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ t(df) &times; &sigma;<br>
-        X<sub>t</sub> = a &times; Y<sub>t−1</sub> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ t(df) &times; &sigma;
+        X<sub>t</sub> = a &times; Y<sub>t−1</sub> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ t(df) &times; &sigma;
       </td>
 
       <td>
@@ -430,11 +433,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ mixed noise<br><br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ mixed noise<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        X<sub>t</sub> = a × Y<sub>t−1</sub> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ mixed noise
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ mixed noise
       </td>
 
       <td>
@@ -458,11 +461,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)<br><br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)<br>
-        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ 𝓝(0, &sigma;<sup>2</sup>)
       </td>
       <td>
         <a class="sub-link" href="data/pair04_2.pdf">View</a>
@@ -485,11 +488,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ t(df) × &sigma;<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ t(df) × &sigma;<br><br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ t(df) × &sigma;<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ t(df) × &sigma;<br>
-        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ t(df) × &sigma;
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ t(df) × &sigma;
       </td>
 
       <td>
@@ -513,11 +516,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>,  &epsilon;<sub>Y</sub> ~ mixed noise<br><br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ mixed noise<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>,  &epsilon;<sub>X</sub> ~ mixed noise
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ mixed noise
       </td>
 
       <td>
@@ -540,7 +543,7 @@
       </td>
       <td><strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2, &sigma;<sup>2</sup>)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;, &epsilon; ~ 0.5 · 𝓝(0, &sigma;<sup>2</sup>) + 0.5 · Laplace(0, &sigma;/√2)<br><br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;, &epsilon; ~ 0.5 · 𝓝(0, &sigma;<sup>2</sup>) + 0.5 · Laplace(0, &sigma;/√2)<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2, &sigma;<sup>2</sup>)<br>
@@ -567,7 +570,7 @@
       </td>
       <td><strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2,&sigma;<sup>2</sup>)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;,  &epsilon; ~ t(df) × &sigma;<br><br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;,  &epsilon; ~ t(df) × &sigma;<br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 0.5 · 𝓝(−2, &sigma;<sup>2</sup>) + 0.5 · 𝓝(2, &sigma;<sup>2</sup>)<br>
@@ -587,13 +590,12 @@
   <table>
     <colgroup>
       <col style="width:1%;">
-      <col style="width:10%;">
-      <col style="width:10%;">
-      <col style="width:10%;">
+      <col style="width:15%;">
+      <col style="width:15%;">
+      <col style="width:15%;">
       <col style="width:20%;">
-      <col style="width:30%;">
+      <col style="width:25%;">
       <col style="width:10%;">
-    </colgroup>
 
     <tr>  
       <th>Sr. No</th>
@@ -601,7 +603,7 @@
       <th>Description</th>
       <th>Scatter Plot</th>
       <th>Switch Points and ground truth between them</th>
-      <th>Ground Truth Equation</th>
+      <th>Equation</th>
       <th>Visualization</th>
     </tr>
 
