@@ -289,7 +289,10 @@
       <td>
         <a class="sub-link" href="data/pair73_2.pdf">pair73_2</a>
       </td>
-      <td>~15, ~30</td>
+      <td>Switches at <br> CO₂ = 6.13, 17.93  <br>
+        CO₂ < 17.93: x→y <br>
+        CO₂ ≥ 17.93: y→x
+      </td>
       <td class="supporting-papers">
         <div><a href="https://www.sciencedirect.com/science/article/pii/S2352484719305517?via%3Dihub" target="_blank">Relationship between energy consumption, CO2 emission and economic growth in ASEAN: Cointegration and causality model</a></div>
       </td>
@@ -309,7 +312,7 @@
       <td>
         <a class="sub-link" href="data/pair001_2.pdf">pair001_2</a>
       </td>
-      <td>~125°, ~200°</td>
+      <td>~Switches at <br> Wind: 154°, 163°, 226° <br> All intervals: x→y</td>
       <td class="supporting-papers">
         <div><a href="https://www.sciencedirect.com/science/article/abs/pii/S0266892024000638" target="_blank">Wind direction can affect wind speed, especially during storms or weather changes.</a></div>
       </td>
@@ -328,7 +331,7 @@
       <td>
         <a class="sub-link" href="data/pair002_2.pdf">pair002_2</a>
       </td>
-      <td>~50°, ~210°</td>
+      <td>~Switches at <br> Wind: 154°, 163°, 220° <br> All intervals: x→y</td>
       <td class="supporting-papers">
         <div><a href="https://www.sciencedirect.com/science/article/pii/S2950338824000238" target="_blank">At higher altitudes, wind direction shifts from northeast to east-northeast, and wind speed rises.</a></div>
       </td>
@@ -355,7 +358,7 @@
       <th>Description</th>
       <th>Scatter Plot</th>
       <th>Switch Points and ground truth between them</th>
-      <th>Ground Truth Structural Equations</th>
+      <th>Ground Truth Structural Equations <br>(Parameter values are defined in the description files)</th>
       <th>Visualization</th>
   
     </tr>
@@ -433,11 +436,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ mixed noise<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ same mixture as X<sub>t</sub><br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        X<sub>t</sub> = a × Y<sub>t−1</sub> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ mixed noise
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ same mixture as Y<sub>t</sub>
       </td>
 
       <td>
@@ -516,11 +519,11 @@
       <td>
         <strong>t &lt; switch point:</strong><br>
         X<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ mixed noise<br>
+        Y<sub>t</sub> = a × X<sub>t−1</sub> + b × X<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>Y</sub>, &epsilon;<sub>Y</sub> ~ same mixture as X<sub>t</sub><br>
 
         <strong>t &ge; switch point:</strong><br>
         Y<sub>t</sub> ~ 𝜆 · 𝓝(0, &sigma;<sub>G</sub><sup>2</sup>) + (1 − 𝜆) · Laplace(0, &sigma;<sub>L</sub>)<br>
-        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ mixed noise
+        X<sub>t</sub> = a × Y<sub>t−1</sub> + b × Y<sub>t−1</sub><sup>2</sup> + &epsilon;<sub>X</sub>, &epsilon;<sub>X</sub> ~ same mixture as Y<sub>t</sub>
       </td>
 
       <td>
@@ -603,7 +606,7 @@
       <th>Description</th>
       <th>Scatter Plot</th>
       <th>Switch Points and ground truth between them</th>
-      <th>Ground Truth Structural Equations</th>
+      <th>Ground Truth Structural Equations <br> ((Parameter values are defined in the description files)</th>
       <th>Visualization</th>
     </tr>
 
